@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private contact:ContactService){
     this.data = new Array<any>()
   }
-  getContacts(){
+  ngOnInit() {
     this.contact.getData().subscribe((data) => {
       console.log(data)
       this.data = data

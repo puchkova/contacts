@@ -7,7 +7,9 @@
 </head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <body>
-<button (click)="getContacts()" class="btn btn-danger">Get contacts</button>
+
+
+
 <table class="table table-striped">
   <thead>
   <tr>
@@ -22,14 +24,10 @@
       totalItems: totalRecords }">
 
     <td>{{contact.name}}</td>
-
     <td>
       <img src="{{contact.url.trim()}}" alt="">
     </td>
   </tr>
-
-
-
   </tbody>
 </table>
 <div>
