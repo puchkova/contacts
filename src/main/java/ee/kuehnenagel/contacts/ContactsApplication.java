@@ -1,4 +1,4 @@
-package ee.kuehnenagel.contacts.contacts;
+package ee.kuehnenagel.contacts;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
