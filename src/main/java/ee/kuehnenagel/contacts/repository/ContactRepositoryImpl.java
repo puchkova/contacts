@@ -2,14 +2,14 @@ package ee.kuehnenagel.contacts.repository;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import ee.kuehnenagel.contacts.model.Contact;
-import ee.kuehnenagel.contacts.repository.ContactRepository;
-import ee.kuehnenagel.contacts.service.ContactService;
+
 import org.springframework.stereotype.Repository;
+
+import ee.kuehnenagel.contacts.model.Contact;
+import ee.kuehnenagel.contacts.service.ContactService;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
