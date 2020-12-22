@@ -7,14 +7,14 @@ import {ContactService} from './services/contact.service'
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   contacts: any;
   name: string = "";
   totalRecords: number = 0;
   page: number = 1;
   title: string = "";
 
-  constructor(private service:ContactService){
+  constructor(private service: ContactService) {
     this.contacts = new Array<any>()
   }
 
@@ -26,8 +26,8 @@ export class AppComponent implements OnInit{
     })
   }
 
-  public findContactByName(){
+  public findContactByName() {
     let resp = this.service.getContactByName(this.name);
-    resp.subscribe((data)=>this.contacts=data);
+    resp.subscribe((data) => this.contacts = data);
   }
 }

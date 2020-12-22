@@ -2,7 +2,6 @@ package ee.kuehnenagel.contacts.service;
 
 import ee.kuehnenagel.contacts.model.Contact;
 import ee.kuehnenagel.contacts.repository.ContactRepository;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

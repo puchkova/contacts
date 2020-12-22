@@ -2,17 +2,11 @@ package ee.kuehnenagel.contacts.repository;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-
-import org.springframework.stereotype.Repository;
-
 import ee.kuehnenagel.contacts.model.Contact;
 import ee.kuehnenagel.contacts.service.ContactService;
+import org.springframework.stereotype.Repository;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,11 +38,9 @@ public class ContactRepositoryImpl implements ContactRepository {
                 Contact newContact = new Contact(nextLine[0],
                         nextLine[1]);
 
-                if(name==null) {
+                if (name == null) {
                     contacts.add(newContact);
-                }
-                else
-                    {
+                } else {
                     if (newContact.getName().toLowerCase().contains(name.toLowerCase())) {
                         contacts.add(newContact);
                     }
