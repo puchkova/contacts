@@ -59,21 +59,23 @@
 </head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <body>
-
-
-
-    <div layout:fragment="content" class="container mySpace">
-      <form action="/contacts" class="form-inline">
-        <div class="form-group mb-2">
-          <input type="text" class="form-control" name="name" placeholder="Search Contact"/>
-          <input type="submit" value="Search" class="btn btn-primary" />
+<!-- Searching -->
+    <div class="container">
+      <div class="row">
+        <div id="custom-search-input">
+          <div class="input-group col-md-12" style="text-align: center">
+            <input type="text" class="search-query form-control" placeholder="Search Contact" name="name" [(ngModel)]="name" />
+              <span class="input-group-btn">
+                <button class="btn btn-danger" type="button" (click)="findContactByName()">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+           </div>
         </div>
-
-      </form>
+      </div>
     </div>
 
-
-
+<!-- Table -->
 <table class="table table-striped">
   <thead>
   <tr>
@@ -82,7 +84,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let contact of data | paginate: {id: 'listing_pagination',
+  <tr *ngFor="let contact of contacts | paginate: {id: 'listing_pagination',
       itemsPerPage: 10,
       currentPage: page,
       totalItems: totalRecords }">
