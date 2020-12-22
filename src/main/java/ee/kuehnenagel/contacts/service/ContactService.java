@@ -14,7 +14,7 @@ public class ContactService {
     @Autowired
     private ContactRepository repository;
 
-    public ArrayList<Contact> findAll() {
-        return repository.findAll();
+    public ArrayList<Contact> findAll(String name) {
+        return repository.findAll(name);
     }
 }

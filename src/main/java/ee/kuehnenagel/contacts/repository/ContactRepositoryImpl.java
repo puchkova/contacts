@@ -19,16 +19,14 @@ public class ContactRepositoryImpl implements ContactRepository {
     private final ArrayList contacts;
 
     public ContactRepositoryImpl() {
-
         contacts = new ArrayList();
     }
 
     @Override
-    public ArrayList<Contact> findAll() {
+    public ArrayList<Contact> findAll(String name) {
         FileInputStream fis = null;
 
         try {
-
             String fileName = "src/main/resources/people.csv";
 
             fis = new FileInputStream(new File(fileName));
@@ -36,11 +34,21 @@ public class ContactRepositoryImpl implements ContactRepository {
             String[] nextLine;
             reader.readNext();
 
+            contacts.clear();
             while ((nextLine = reader.readNext()) != null) {
 
                 Contact newContact = new Contact(nextLine[0],
                         nextLine[1]);
-                contacts.add(newContact);
+
+                if(name==null) {
+                    contacts.add(newContact);
+                }
+                else
+                    {
+                    if (newContact.getName().toLowerCase().contains(name.toLowerCase())) {
+                        contacts.add(newContact);
+                    }
+                }
             }
 
         } catch (FileNotFoundException ex) {
@@ -58,7 +66,6 @@ public class ContactRepositoryImpl implements ContactRepository {
                 Logger.getLogger(ContactService.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
         return contacts;
     }
 }

@@ -16,7 +16,9 @@ public class ContactController {
     private ContactService contactService;
 
     @GetMapping("/contacts")
-    public List<Contact> listContacts() {
-        return contactService.findAll();
-    }
+    @ResponseBody
+    public List<Contact> listContacts(@RequestParam(required = false) String name) {
+            return contactService.findAll(name);
+        }
+
 }

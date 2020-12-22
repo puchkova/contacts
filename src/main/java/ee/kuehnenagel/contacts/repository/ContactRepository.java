@@ -5,5 +5,6 @@ import ee.kuehnenagel.contacts.model.Contact;
 import java.util.ArrayList;
 
 public interface ContactRepository {
-    ArrayList<Contact> findAll();
+
+    ArrayList<Contact> findAll(String name);
 }
