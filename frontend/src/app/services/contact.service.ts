@@ -13,7 +13,8 @@ export class ContactService {
   getData(): Observable<any>{
     return this.http.get(`${this.baseUrl}`)
   }
+
   public getContactByName(name: string){
-    return this.http.get(`${this.baseUrl}`+ "?name=" +name)
+    return this.http.get(`${this.baseUrl}`+ "?name=" + name)
   }
 }

@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactService} from './services/contact.service'
-import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit{
   contacts: any;
   name: string = "";
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
   constructor(private service:ContactService){
     this.contacts = new Array<any>()
   }
+
   ngOnInit() {
     this.service.getData().subscribe((data) => {
       console.log(data);
@@ -24,9 +25,9 @@ export class AppComponent implements OnInit{
       this.totalRecords = data.length;
     })
   }
+
   public findContactByName(){
     let resp = this.service.getContactByName(this.name);
     resp.subscribe((data)=>this.contacts=data);
-
   }
 }
