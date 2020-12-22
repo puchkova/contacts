@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class ContactService implements IContactService {
+public class ContactService {
 
     @Autowired
     private ContactRepository repository;
 
-    @Override
     public ArrayList<Contact> findAll() {
         return repository.findAll();
     }
