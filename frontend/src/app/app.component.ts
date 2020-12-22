@@ -8,21 +8,19 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-//export class AppComponent{
-  //data: Array<any>
-  contacts:any
-  name: string = ""
-  totalRecords: Number | undefined
-  page: Number=1
+  contacts:any;
+  name: string = "";
+  totalRecords: Number | undefined;
+  page: Number = 1;
 
   constructor(private service:ContactService){
     this.contacts = new Array<any>()
   }
   ngOnInit() {
     this.service.getData().subscribe((data) => {
-      console.log(data)
-      this.contacts = data
-      this.totalRecords = data.length
+      console.log(data);
+      this.contacts = data;
+      this.totalRecords = data.length;
     })
   }
   public findContactByName(){

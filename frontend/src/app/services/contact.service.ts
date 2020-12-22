@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
 })
 export class ContactService {
 
-  private baseUrl = 'http://localhost:8080/contacts'
+  private baseUrl = 'http://localhost:8080/contacts';
 
   constructor(private http: HttpClient) { }
 
