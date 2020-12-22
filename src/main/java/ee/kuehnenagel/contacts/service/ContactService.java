@@ -14,6 +14,7 @@ public class ContactService {
     private final ContactRepository repository;
 
     public ArrayList<Contact> findAll(String name) {
+
         return repository.findAll(name);
     }
 }
