@@ -8,10 +8,11 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  contacts:any;
+  contacts: any;
   name: string = "";
-  totalRecords: Number | undefined;
-  page: Number = 1;
+  totalRecords: number = 0;
+  page: number = 1;
+  title: string = "";
 
   constructor(private service:ContactService){
     this.contacts = new Array<any>()
