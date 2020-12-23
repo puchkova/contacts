@@ -22,7 +22,9 @@
           <input type="text" class="search-query form-control" placeholder="Search Contact" name="name"
                  [(ngModel)]="name"/>
           <span class="input-group-btn">
+            &nbsp;
             <button class="btn btn-outline-primary" type="submit" (click)="getContacts()">Search</button>
+                &nbsp;
             <button class="btn btn-outline-secondary" type="reset"
                     (click)="clearSearchField(); getContacts();">Reset</button>
           </span>
