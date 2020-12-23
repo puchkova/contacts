@@ -45,7 +45,7 @@ public class ContactRepositoryImpl implements ContactRepository {
             name = row[0];
             url = row[1];
         } else {
-            name = row[0] + row[1];
+            name = row[0] + " ," + row[1];
             url = row[2];
         }
         return new Contact(name, url);
