@@ -10,7 +10,7 @@ export class ContactService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllContacts(): Observable<any>{
+  public getContacts(): Observable<any>{
     return this.http.get(`${this.baseUrl}`)
   }
 

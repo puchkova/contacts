@@ -15,19 +15,16 @@ export class AppComponent implements OnInit {
   title: string = "";
 
   constructor(private service: ContactService) {
-    this.contacts = new Array<any>()
+    this.contacts = new Array<any>();
   }
 
   ngOnInit() {
-    this.service.getData().subscribe((data) => {
-      console.log(data);
-      this.contacts = data;
-      this.totalRecords = data.length;
-    })
+     let resp = this.service.getContacts();
+     resp.subscribe((data) => this.contacts = data);
   }
 
-  public findContactByName() {
-    let resp = this.service.getContactByName(this.name);
+  public findContactsByName() {
+    let resp = this.service.getContactsByName(this.name);
     resp.subscribe((data) => this.contacts = data);
   }
 }
