@@ -23,14 +23,13 @@ public class ContactServiceTest {
     @InjectMocks
     private ContactService service;
 
-    private String name = "Simpson";
-    private ArrayList<Contact> contacts = new ArrayList<>();
-    private String file = "src/test/people-test.csv";
+    private String name = "simpson";
 
     @Test
-    public void getContactsShouldCallGetContactsFromCsvFileFromContactRepositoryOnlyOneTime() {
+    public void getContactsCallsGetContactsFromCsvFileFromContactRepositoryOnlyOneTime() {
         //given
-        when(repository.getContactsFromCsvFile(name, file)).thenReturn(contacts);
+        String file = "src/test/people-test.csv";
+        when(repository.getContactsFromCsvFile(name, file)).thenReturn(new ArrayList<>());
         service.setFile(file);
 
         //when

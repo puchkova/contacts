@@ -1,8 +1,6 @@
 package ee.kuehnenagel.contacts.controller;
 
-import ee.kuehnenagel.contacts.model.Contact;
 import ee.kuehnenagel.contacts.service.ContactService;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -32,8 +30,7 @@ public class ContactControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private String name = "Simpson";
-    private ArrayList<Contact> contacts = new ArrayList<>();
+    private String name = "simpson";
 
     @Test
     public void getContactsResponseIsSuccessful() throws Exception {
@@ -41,9 +38,9 @@ public class ContactControllerTest {
     }
 
     @Test
-    public void getContactsShouldCallGetContactsFromContactServiceOnlyOneTime() {
+    public void getContactsCallsGetContactsFromContactServiceOnlyOneTime() {
         //given
-        when(service.getContacts(name)).thenReturn(contacts);
+        when(service.getContacts(name)).thenReturn(new ArrayList<>());
 
         //when
         controller.getContacts(name);
