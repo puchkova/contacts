@@ -13,8 +13,8 @@ public class ContactService {
 
     private final ContactRepository repository;
 
-    public ArrayList<Contact> findAll(String name) {
+    public ArrayList<Contact> getContacts(String name) {
 
-        return repository.findAll(name);
+        return repository.getContactsFromCsvFile(name);
     }
 }

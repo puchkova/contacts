@@ -17,7 +17,7 @@ public class ContactRepositoryImpl implements ContactRepository {
     private final ArrayList<Contact> contacts;
 
     @Override
-    public ArrayList<Contact> findAll(String name) {
+    public ArrayList<Contact> getContactsFromCsvFile(String name) {
        try {
            String fileName = "src/main/resources/people.csv";
            FileInputStream fis = new FileInputStream(new File(fileName));

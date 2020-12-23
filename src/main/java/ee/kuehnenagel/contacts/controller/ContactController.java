@@ -20,8 +20,8 @@ public class ContactController {
 
     @GetMapping("/contacts")
     @ResponseBody
-    public List<Contact> listContacts(@RequestParam(required = false) String name) {
-        return contactService.findAll(name);
+    public List<Contact> getContacts(@RequestParam(required = false) String name) {
+        return contactService.getContacts(name);
     }
 
 }
