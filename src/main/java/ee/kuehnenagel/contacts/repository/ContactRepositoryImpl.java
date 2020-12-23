@@ -13,21 +13,19 @@ import java.util.ArrayList;
 @Repository
 public class ContactRepositoryImpl implements ContactRepository {
 
-    private final ArrayList<Contact> contacts;
-
     @Override
     public ArrayList<Contact> getContactsFromCsvFile(String name, String file) {
+        ArrayList<Contact> contacts = new ArrayList<>();
         try {
             FileInputStream fis = new FileInputStream(new File(file));
             CSVReader reader = new CSVReader(new InputStreamReader(fis));
             String[] nextLine;
             reader.readNext();
-            contacts.clear();
             while ((nextLine = reader.readNext()) != null) {
                 Contact newContact = new Contact(nextLine[0],
                         nextLine[1]);
 
-                filterContacts(name, newContact);
+                filterContacts(name, newContact, contacts);
             }
             fis.close();
         } catch (Exception e) {
@@ -36,8 +34,8 @@ public class ContactRepositoryImpl implements ContactRepository {
         return contacts;
     }
 
-    private void filterContacts(String name, Contact newContact) {
-        if (name != null) {
+    private void filterContacts(String name, Contact newContact, ArrayList<Contact> contacts) {
+        if (name != null && !name.trim().isEmpty() && name.length()!=0) {
             if (newContact.getName().toLowerCase().contains(name.toLowerCase())) {
                 contacts.add(newContact);
             }
