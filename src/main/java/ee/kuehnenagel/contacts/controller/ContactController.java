@@ -2,6 +2,7 @@ package ee.kuehnenagel.contacts.controller;
 
 import ee.kuehnenagel.contacts.model.Contact;
 import ee.kuehnenagel.contacts.service.ContactService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

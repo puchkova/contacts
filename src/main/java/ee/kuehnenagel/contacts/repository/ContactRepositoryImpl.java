@@ -1,7 +1,8 @@
 package ee.kuehnenagel.contacts.repository;
 
-import com.opencsv.CSVReader;
 import ee.kuehnenagel.contacts.model.Contact;
+
+import com.opencsv.CSVReader;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -24,10 +25,8 @@ public class ContactRepositoryImpl implements ContactRepository {
             CSVReader reader = new CSVReader(new InputStreamReader(fis));
             String[] nextLine;
             reader.readNext();
-
             contacts.clear();
             while ((nextLine = reader.readNext()) != null) {
-
                 Contact newContact = new Contact(nextLine[0],
                         nextLine[1]);
 
@@ -41,12 +40,12 @@ public class ContactRepositoryImpl implements ContactRepository {
     }
 
     private void filterContacts(String name, Contact newContact) {
-        if (name == null) {
-            contacts.add(newContact);
-        } else {
+        if (name != null) {
             if (newContact.getName().toLowerCase().contains(name.toLowerCase())) {
                 contacts.add(newContact);
             }
+        } else {
+            contacts.add(newContact);
         }
     }
 }
