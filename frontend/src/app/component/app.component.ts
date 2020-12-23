@@ -27,4 +27,8 @@ export class AppComponent implements OnInit {
     let resp = this.service.getContactsByName(this.name);
     resp.subscribe((data) => this.contacts = data);
   }
+
+  public clearSearchField(){
+    this.name = "";
+  }
 }

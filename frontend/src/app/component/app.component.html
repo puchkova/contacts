@@ -19,7 +19,7 @@
                  [(ngModel)]="name"/>
           <span class="input-group-btn">
             <button class="btn btn-outline-primary" type="submit" (click)="findContactsByName()">Search</button>
-            <button class="btn btn-outline-secondary" type="reset" (click)="ngOnInit()">Reset</button>
+            <button class="btn btn-outline-secondary" type="reset" (click)="ngOnInit(); clearSearchField();">Reset</button>
           </span>
         </div>
       </div>
