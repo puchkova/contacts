@@ -35,6 +35,7 @@ public class ContactRepositoryImplTest {
         assertThat(contacts.get(1).getName()).isEqualTo("Tatjana Larina");
         assertThat(contacts.get(2).getName()).isEqualTo("Tatjana Romanova");
         assertThat(contacts.get(1).getUrl().trim()).isEqualTo("https://vignette.wikia.nocookie.net/simpsons/images/4/4d/MargeSimpson.png/revision/latest/scale-to-width-down/78?cb=20180314071936");
+        assertThat(contacts.get(2).getUrl().trim()).isEqualTo("https://vignette.wikia.nocookie.net/simpsons/images/6/65/Bart_Simpson.png/revision/latest/scale-to-width-down/87?cb=20180319061933");
     }
 
     @Test
