@@ -31,7 +31,7 @@ public class ContactRepositoryImpl implements ContactRepository {
                 Contact newContact = new Contact(nextLine[0],
                         nextLine[1]);
 
-                filterContactList(name, newContact);
+                filterContacts(name, newContact);
             }
             fis.close();
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class ContactRepositoryImpl implements ContactRepository {
         return contacts;
     }
 
-    private void filterContactList(String name, Contact newContact) {
+    private void filterContacts(String name, Contact newContact) {
         if (name == null) {
             contacts.add(newContact);
         } else {
