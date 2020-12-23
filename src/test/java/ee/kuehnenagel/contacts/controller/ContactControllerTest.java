@@ -36,6 +36,11 @@ public class ContactControllerTest {
     private ArrayList<Contact> contacts = new ArrayList<>();
 
     @Test
+    public void getContactsResponseIsSuccessful() throws Exception {
+        mockMvc.perform(get("/contacts")).andExpect(status().is2xxSuccessful());
+    }
+
+    @Test
     public void getContactsShouldCallGetContactsFromContactServiceOnlyOneTime() {
         //given
         when(service.getContacts(name)).thenReturn(contacts);
@@ -46,11 +51,6 @@ public class ContactControllerTest {
         //then
         verify(service, times(1)).getContacts(name);
         assertNotNull(service.getContacts(name));
-    }
-
-    @Test
-    public void getContactsResponseIsSuccessful() throws Exception {
-        mockMvc.perform(get("/contacts")).andExpect(status().is2xxSuccessful());
     }
 
     @Test
