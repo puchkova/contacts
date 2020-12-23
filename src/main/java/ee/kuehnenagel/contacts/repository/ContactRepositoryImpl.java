@@ -6,9 +6,7 @@ import com.opencsv.CSVReader;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 
 @RequiredArgsConstructor
@@ -18,10 +16,9 @@ public class ContactRepositoryImpl implements ContactRepository {
     private final ArrayList<Contact> contacts;
 
     @Override
-    public ArrayList<Contact> getContactsFromCsvFile(String name) {
+    public ArrayList<Contact> getContactsFromCsvFile(String name, String file) {
         try {
-            String fileName = "src/main/resources/people.csv";
-            FileInputStream fis = new FileInputStream(new File(fileName));
+            FileInputStream fis = new FileInputStream(new File(file));
             CSVReader reader = new CSVReader(new InputStreamReader(fis));
             String[] nextLine;
             reader.readNext();

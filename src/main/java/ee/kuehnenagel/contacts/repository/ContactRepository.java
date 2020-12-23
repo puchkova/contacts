@@ -6,5 +6,5 @@ import java.util.ArrayList;
 
 public interface ContactRepository {
 
-    ArrayList<Contact> getContactsFromCsvFile(String name);
+    ArrayList<Contact> getContactsFromCsvFile(String name, String file);
 }
