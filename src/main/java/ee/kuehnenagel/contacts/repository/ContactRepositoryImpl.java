@@ -43,10 +43,10 @@ public class ContactRepositoryImpl implements ContactRepository {
         String url;
         if (row[2].isEmpty()) {
             name = row[0];
-            url = row[1];
+            url = row[1].trim();
         } else {
-            name = row[0] + " ," + row[1];
-            url = row[2];
+            name = row[0] + "," + row[1];
+            url = row[2].trim();
         }
         return new Contact(name, url);
     }
