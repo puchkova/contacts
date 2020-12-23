@@ -18,31 +18,35 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public ArrayList<Contact> getContactsFromCsvFile(String name) {
-       try {
-           String fileName = "src/main/resources/people.csv";
-           FileInputStream fis = new FileInputStream(new File(fileName));
-           CSVReader reader = new CSVReader(new InputStreamReader(fis));
-           String[] nextLine;
-           reader.readNext();
+        try {
+            String fileName = "src/main/resources/people.csv";
+            FileInputStream fis = new FileInputStream(new File(fileName));
+            CSVReader reader = new CSVReader(new InputStreamReader(fis));
+            String[] nextLine;
+            reader.readNext();
 
-           contacts.clear();
-           while ((nextLine = reader.readNext()) != null) {
+            contacts.clear();
+            while ((nextLine = reader.readNext()) != null) {
 
-               Contact newContact = new Contact(nextLine[0],
-                       nextLine[1]);
+                Contact newContact = new Contact(nextLine[0],
+                        nextLine[1]);
 
-               if (name == null) {
-                   contacts.add(newContact);
-               } else {
-                   if (newContact.getName().toLowerCase().contains(name.toLowerCase())) {
-                       contacts.add(newContact);
-                   }
-               }
-           }
-           fis.close();
-    } catch (Exception e) {
-        throw new RuntimeException(e);
-    }
+                filterContactList(name, newContact);
+            }
+            fis.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         return contacts;
+    }
+
+    private void filterContactList(String name, Contact newContact) {
+        if (name == null) {
+            contacts.add(newContact);
+        } else {
+            if (newContact.getName().toLowerCase().contains(name.toLowerCase())) {
+                contacts.add(newContact);
+            }
+        }
     }
 }
