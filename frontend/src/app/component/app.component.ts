@@ -19,8 +19,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-     let resp = this.service.getContacts();
-     resp.subscribe((data) => this.contacts = data);
+    let resp = this.service.getContacts();
+    resp.subscribe((data) => this.contacts = data);
   }
 
   public findContactsByName() {
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     resp.subscribe((data) => this.contacts = data);
   }
 
-  public clearSearchField(){
+  public clearSearchField() {
     this.name = "";
   }
 }
