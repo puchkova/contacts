@@ -10,11 +10,7 @@ export class ContactService {
 
   constructor(private http: HttpClient) { }
 
-  public getContacts(): Observable<any>{
-    return this.http.get(`${this.baseUrl}`)
-  }
-
-  public getContactsByName(name: string){
+  public getContacts(name: string): Observable<any>{
     return this.http.get(`${this.baseUrl}`+ "?name=" + name)
   }
 }

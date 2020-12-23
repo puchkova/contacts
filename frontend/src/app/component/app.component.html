@@ -22,9 +22,9 @@
           <input type="text" class="search-query form-control" placeholder="Search Contact" name="name"
                  [(ngModel)]="name"/>
           <span class="input-group-btn">
-            <button class="btn btn-outline-primary" type="submit" (click)="findContactsByName()">Search</button>
+            <button class="btn btn-outline-primary" type="submit" (click)="getContacts()">Search</button>
             <button class="btn btn-outline-secondary" type="reset"
-                    (click)="ngOnInit(); clearSearchField();">Reset</button>
+                    (click)="clearSearchField(); getContacts();">Reset</button>
           </span>
         </div>
       </div>
@@ -52,7 +52,7 @@
   </table>
   <!-- Pagination -->
   <div>
-    <pagination-controls id="listing_pagination"
+    <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
                          (pageChange)="page = $event"></pagination-controls>
   </div>
   <!-- Background -->

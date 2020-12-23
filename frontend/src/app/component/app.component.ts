@@ -19,13 +19,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    let resp = this.service.getContacts();
-    resp.subscribe((data) => this.contacts = data);
+    this.getContacts()
   }
 
-  public findContactsByName() {
-    let resp = this.service.getContactsByName(this.name);
-    resp.subscribe((data) => this.contacts = data);
+  public getContacts() {
+    let resp = this.service.getContacts(this.name);
+    resp.subscribe((data) => {
+      this.contacts = data;
+      this.totalRecords = data.length;
+      this.page = 1;
+    })
   }
 
   public clearSearchField() {
