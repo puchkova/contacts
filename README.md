@@ -34,7 +34,7 @@ The `frontend\` directory contains the client project. It contains component and
 
 2. Use your IDE `Run` menu to run the server
 
-3. Go `frontend` folder using `cd` in your terminal and run the `npm install` command to install node modules 
+3. Go to `frontend` folder using `cd` in your terminal and run the `npm install` command to install node modules 
 
 4. Run the `nmp start` command to run the client application
 
