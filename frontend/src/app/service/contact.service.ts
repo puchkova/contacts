@@ -13,12 +13,12 @@ export class ContactService {
   }
 
   public getContacts(name: string): Observable<any> {
-    let url;
+    let resp;
     if (name !== null && name !== '' && name !== undefined) {
-      url = this.http.get(`${this.baseUrl}` + "?name=" + name);
+      resp = this.http.get(`${this.baseUrl}` + "?name=" + name);
     } else {
-      url = this.http.get(`${this.baseUrl}`);
+      resp = this.http.get(`${this.baseUrl}`);
     }
-    return url;
+    return resp;
   }
 }
