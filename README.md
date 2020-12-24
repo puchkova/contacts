@@ -8,6 +8,7 @@ The back-end is the SpringBoot RESTful API application built using Maven. The fr
 - JDK - You can follow the instructions https://www.oracle.com/java/technologies/javase-downloads.html to install Java Development Kit on your machine.
 
 ## Application Structure
+###Back-end
 The `src\` directory contains the server project. It contains controller, service and model packages inside the `src\main\java\ee\kuehnenagel\contacts\` package.
 - `ContactController` contains the GET request with name of contact as optional request parameter. It returns full or filtered contact list.
 - `ContactService` contains method that calls repository and returns contact list. The service contains csv file field with its path as @Value parameter.
@@ -18,8 +19,11 @@ The `src\` directory contains the server project. It contains controller, servic
    - `filterContacts` is the private method that contains searching logic and returns a new contact.
 - `people.csv` is located in the `src\main\resources` folder. It is the input file for upload contacts to contact list.
 
-The `src\test\java\ee\kuehnenagel\contacts\` package contains unit tests for controller, repository and service. There is also `people-test.csv` file for testing in `src\test` folder.
+###Automated tests
+The `src\test\java\ee\kuehnenagel\contacts\` package contains unit tests for controller, repository and service. 
+There is also `people-test.csv` file for testing in `src\test` folder.
 
+###Front-end
 The `frontend\` directory contains the client project. It contains component and service packages inside the `frontend\src\app` folder.
 - `app.component.css` contains all the slyles using in the project.
 - `app.component.html` contains markup tags to display the web page. It contains toolbar with welcome message, search field, search and refresh buttons, table as contact list and pagination component.
