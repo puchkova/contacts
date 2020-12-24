@@ -3,9 +3,9 @@ The project is a simple Contact List web application with functions of listing p
 The back-end is the **Java Spring Boot** application built using **Maven**. The front-end was developed with **Angular 10**. Unit tests was created using **Junit** and **Mockito**.
 
 ## Prerequisites
-- **NodeJS** - You can follow the instructions https://nodejs.org/en/ to install Node on your machine.
-- **IntelliJ IDEA** - You can follow the instructions https://www.jetbrains.com/idea/ to install IDE on your machine.
-- **JDK** - You can follow the instructions https://www.oracle.com/java/technologies/javase-downloads.html to install Java Development Kit on your machine.
+- **NodeJS** - https://nodejs.org/en/
+- **IntelliJ IDEA** - https://www.jetbrains.com/idea/
+- **JDK** - https://www.oracle.com/java/technologies/javase-downloads.html
 
 ## Application Structure
 ### Back-end
