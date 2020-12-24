@@ -1,6 +1,6 @@
 # Contacts
 The project is a simple "Contact List" web application with functions of listing people, searching by name and paging. 
-The back-end is the SpringBoot RESTful API application built using Maven. The front-end was developed with Angular 10. Automated tests was developed using Junit+Mockito.
+The back-end is the SpringBoot RESTful API application built using Maven. The front-end was developed with Angular 10. Automated tests was created using Junit+Mockito.
 
 ## Prerequisites
 - NodeJS - You can follow the instructions https://nodejs.org/en/ to install Node on your machine.
@@ -8,7 +8,7 @@ The back-end is the SpringBoot RESTful API application built using Maven. The fr
 - JDK - You can follow the instructions https://www.oracle.com/java/technologies/javase-downloads.html to install Java Development Kit on your machine.
 
 ## Application Structure
-`src\` directory contains the back-end project. It contains controller, service and model packages inside `src\main\java\ee\kuehnenagel\contacts\` package.
+The `src\` directory contains the server project. It contains controller, service and model packages inside `src\main\java\ee\kuehnenagel\contacts\` package.
 - `ContactController` contains the GET request with name of contact as optional request parameter. It returns full or filtered by parameter contact list
 - `ContactService` contains method that calls repository and returns contact list. The service contains csv file field with its path as @Value parameter.
 - `Contact` is a model that contains contact name and photo url fields.
@@ -42,4 +42,5 @@ The back-end is the SpringBoot RESTful API application built using Maven. The fr
 
 6. Right click on the `contact` module in your IDE and choose `Run 'All Tests'` to run automated tests 
 
-This is how it looks like
+## This is how it looks like
+
