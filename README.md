@@ -11,8 +11,8 @@ The back-end is the **Java Spring Boot** application built using **Maven**. The 
 ### Back-end
 The `src\` directory contains the server project. It contains *controller*, *service*, *repository* and *model* packages inside the `src\main\java\ee\kuehnenagel\contacts\` package.
 - `ContactController` contains the *REST API* GET request with name of contact as optional request parameter. It returns full or filtered contact list.
-- `ContactService` contains method that calls *repository* and returns the contact list. The service contains the CSV file field with its path as *@Value* parameter.
-- `Contact` is a model that contains contact name and photo url fields. 
+- `ContactService` contains method that calls *repository* and returns the contact list. The *service* contains the CSV file field with its path as *@Value* parameter.
+- `Contact` is a *model* that contains contact name and photo url fields. 
 - `ContactRepository` implements `ContactRepository` interface. It contains operations with data. 
 	 - `getContactsFromCsvFile` is a public method for getting contacts from CSV file with contact name for searching and file as a parameters. It contains a *while* loop that fill the contact list.
 	 - `createNewContact` is a private method for creating a new contact and avoiding cases of extra whitespaces and commas in the input file.
