@@ -1,5 +1,5 @@
 # Contacts
-The project is a simple "Contact List" web application with functions of listing people, searching by name and paging. 
+The project is a simple Contact List web application with functions of listing people, searching by name and paging. 
 The back-end is the **SpringBoot RESTful API** application built using **Maven**. The front-end was developed with **Angular 10**. Unit tests was created using **Junit** and **Mockito**.
 
 ## Prerequisites
