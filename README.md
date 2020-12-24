@@ -19,7 +19,7 @@ The `src\` directory contains the server project. It contains controller, servic
    - `filterContacts` is the private method that contains searching logic and returns a new contact.
 - `people.csv` is located in the `src\main\resources` folder. It is the input file for upload contacts to contact list.
 
-### Automated tests
+### Unit Testing
 The `src\test\java\ee\kuehnenagel\contacts\` package contains unit tests for controller, repository and service. 
 There is also `people-test.csv` file for testing in `src\test` folder.
 
