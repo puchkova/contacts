@@ -3,9 +3,9 @@ The project is a simple "Contact List" web application with functions of listing
 The back-end is the **SpringBoot RESTful API** application built using **Maven**. The front-end was developed with **Angular 10**. Automated tests was created using **Junit+Mockito**.
 
 ## Prerequisites
-- NodeJS - You can follow the instructions https://nodejs.org/en/ to install Node on your machine.
-- IntelliJ IDEA - You can follow the instructions https://www.jetbrains.com/idea/ to install IDE on your machine.
-- JDK - You can follow the instructions https://www.oracle.com/java/technologies/javase-downloads.html to install Java Development Kit on your machine.
+- **NodeJS** - You can follow the instructions https://nodejs.org/en/ to install Node on your machine.
+- **IntelliJ IDEA** - You can follow the instructions https://www.jetbrains.com/idea/ to install IDE on your machine.
+- **JDK** - You can follow the instructions https://www.oracle.com/java/technologies/javase-downloads.html to install Java Development Kit on your machine.
 
 ## Application Structure
 ### Back-end
