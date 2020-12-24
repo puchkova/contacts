@@ -1,6 +1,6 @@
 # Contacts
 The project is a simple Contact List web application with functions of listing people, searching by name and paging. 
-The back-end is the **SpringBoot RESTful API** application built using **Maven**. The front-end was developed with **Angular 10**. Unit tests was created using **Junit** and **Mockito**.
+The back-end is the **Java Spring Boot** application built using **Maven**. The front-end was developed with **Angular 10**. Unit tests was created using **Junit** and **Mockito**.
 
 ## Prerequisites
 - **NodeJS** - You can follow the instructions https://nodejs.org/en/ to install Node on your machine.
@@ -10,7 +10,7 @@ The back-end is the **SpringBoot RESTful API** application built using **Maven**
 ## Application Structure
 ### Back-end
 The `src\` directory contains the server project. It contains *controller*, *service*, *repository* and *model* packages inside the `src\main\java\ee\kuehnenagel\contacts\` package.
-- `ContactController` contains the GET request with name of contact as optional request parameter. It returns full or filtered contact list.
+- `ContactController` contains the *REST API* GET request  request with name of contact as optional request parameter. It returns full or filtered contact list.
 - `ContactService` contains method that calls repository and returns contact list. The service contains CSV file field with its path as *@Value* parameter.
 - `Contact` is a model that contains contact name and photo url fields. 
 - `ContactRepository` implements `ContactRepository` interface. It contains operations with data. 
