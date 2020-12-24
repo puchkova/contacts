@@ -49,5 +49,5 @@ The `frontend\` directory contains the client project. It contains *component* a
 ## User Interface
 ![Screenshot 2020-12-24 070727](https://user-images.githubusercontent.com/54691147/103062477-f1eae680-45b6-11eb-97e3-6deb5f8fa165.jpg)
 
-![Screenshot 2020-12-24 070836](https://user-images.githubusercontent.com/54691147/103062484-f57e6d80-45b6-11eb-9eda-0e0a2c26333c.jpg)
+![Screenshot 2020-12-24 070836](https://user-images.githubusercontent.com/54691147/103062609-69207a80-45b7-11eb-90fd-766e347a00b9.jpg)
 
