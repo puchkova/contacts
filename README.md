@@ -1,6 +1,6 @@
 # Contacts
 The project is a simple "Contact List" web application with functions of listing people, searching by name and paging. 
-The back-end is the SpringBoot RESTful API application built using Maven. The front-end was developed with Angular 10. Automated tests was created using Junit+Mockito.
+The back-end is the **SpringBoot RESTful API** application built using **Maven**. The front-end was developed with **Angular 10**. Automated tests was created using **Junit+Mockito**.
 
 ## Prerequisites
 - NodeJS - You can follow the instructions https://nodejs.org/en/ to install Node on your machine.
@@ -9,22 +9,22 @@ The back-end is the SpringBoot RESTful API application built using Maven. The fr
 
 ## Application Structure
 ### Back-end
-The `src\` directory contains the server project. It contains controller, service and model packages inside the `src\main\java\ee\kuehnenagel\contacts\` package.
+The `src\` directory contains the server project. It contains *controller*, *service*, *repository* and *model* packages inside the `src\main\java\ee\kuehnenagel\contacts\` package.
 - `ContactController` contains the GET request with name of contact as optional request parameter. It returns full or filtered contact list.
-- `ContactService` contains method that calls repository and returns contact list. The service contains csv file field with its path as @Value parameter.
-- `Contact` is a model that contains contact name and photo url fields.
+- `ContactService` contains method that calls repository and returns contact list. The service contains CSV file field with its path as *@Value* parameter.
+- `Contact` is a model that contains contact name and photo url fields. 
 - `ContactRepository` implements `ContactRepository` interface. It contains operations with data. 
-	 - `getContactsFromCsvFile` is a public method for getting contacts from CSV file with contact name for searching and file as a parameters. It contains a while loop that fill the contact list.
+	 - `getContactsFromCsvFile` is a public method for getting contacts from CSV file with contact name for searching and file as a parameters. It contains a *while* loop that fill the contact list.
 	 - `createNewContact` is a private method for creating a new contact and avoiding cases of extra whitespaces and commas the input file.
    - `filterContacts` is the private method that contains searching logic and returns a new contact.
 - `people.csv` is located in the `src\main\resources` folder. It is the input file for upload contacts to contact list.
 
 ### Unit Tests
-The `src\test\java\ee\kuehnenagel\contacts\` package contains unit tests for controller, repository and service. 
+The `src\test\java\ee\kuehnenagel\contacts\` package contains unit tests for *controller*, *service* and *repository*. 
 There is also `people-test.csv` file for testing in `src\test` folder.
 
 ### Front-end
-The `frontend\` directory contains the client project. It contains component and service packages inside the `frontend\src\app` folder.
+The `frontend\` directory contains the client project. It contains *component* and *service* packages inside the `frontend\src\app` folder.
 - `app.component.css` contains all the slyles using in the project.
 - `app.component.html` contains markup tags to display the web page. It contains toolbar with welcome message, search field, search and refresh buttons, table as contact list and pagination component.
 - `app.component.ts` contains 3 fuctions: 
