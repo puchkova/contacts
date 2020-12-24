@@ -30,7 +30,7 @@ The `frontend\` directory contains the client project. It contains component and
 - `contact.service.ts` contains method with contact name for searching as a parameter. It returns GET responses for getting full or filtered contact list depending on parameter.
 
 ## Installing & Running 
-1. Clone this repo https://github.com/puchkova/contacts.gi
+1. Clone this repo https://github.com/puchkova/contacts.git
 
 2. Use your IDE `Run` menu to run the server
 
