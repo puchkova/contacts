@@ -47,5 +47,6 @@ The `frontend\` directory contains the client project. It contains *component* a
 6. Right click on the `contact` module in your IDE and choose `Run 'All Tests'` to run automated tests 
 
 ## User Interface
-![image](https://user-images.githubusercontent.com/54691147/103062238-4e99d180-45b6-11eb-80d3-880b2da90f37.png)
+![Screenshot 2020-12-24 070727](https://user-images.githubusercontent.com/54691147/103062477-f1eae680-45b6-11eb-97e3-6deb5f8fa165.jpg)
+![Screenshot 2020-12-24 070836](https://user-images.githubusercontent.com/54691147/103062484-f57e6d80-45b6-11eb-9eda-0e0a2c26333c.jpg)
 
