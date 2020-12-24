@@ -18,9 +18,9 @@ The `src\` directory contains the server project. It contains controller, servic
    - `filterContacts` is the private method that contains searching logic and returns a new contact.
 - `people.csv` is located in the `src\main\resources` folder. It is the input file for upload contacts to contact list.
 
-`src\test\java\ee\kuehnenagel\contacts\` package contains unit tests for controller, repository and service. There is also `people-test.csv` file for testing in `src\test` folder.
+The `src\test\java\ee\kuehnenagel\contacts\` package contains unit tests for controller, repository and service. There is also `people-test.csv` file for testing in `src\test` folder.
 
-`frontend\` directory contains the client project. It contains component and service packages inside the `frontend\src\app` folder.
+The `frontend\` directory contains the client project. It contains component and service packages inside the `frontend\src\app` folder.
 - `app.component.css` contains all the slyles using in the project.
 - `app.component.html` contains markup tags to display the web page. It contains toolbar with welcome message, search field, search and refresh buttons, table as contact list and pagination component.
 - `app.component.ts` contains 3 fuctions: 
