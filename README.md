@@ -43,4 +43,5 @@ The `src\` directory contains the server project. It contains controller, servic
 6. Right click on the `contact` module in your IDE and choose `Run 'All Tests'` to run automated tests 
 
 ## This is how it looks like
+![Screenshot 2020-12-24 051131](https://user-images.githubusercontent.com/54691147/103057364-f2c84c00-45a7-11eb-9397-101e83878960.jpg)
 
