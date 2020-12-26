@@ -1,62 +1,34 @@
 package ee.kuehnenagel.contacts.service;
 
 import ee.kuehnenagel.contacts.model.Contact;
-
-import ee.kuehnenagel.contacts.repository.ContactRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
+@TestPropertySource(locations = "classpath:application-test.properties")
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class ContactServiceTest {
-
-    @Mock
-    private ContactRepository repositoryMock;
-    @InjectMocks
-    private ContactService serviceUnderTest;
+public class ContactServiceIntegrationTest {
 
     @Autowired
     private ContactService service;
 
-    private String name = "simpson";
-    private final String file = "src/test/people-test.csv";
-
-    @Test
-    public void getAllContactsCallsFindAllFromRepositoryOnlyOneTime() {
-        //given
-        when(repositoryMock.findAll()).thenReturn(new ArrayList<>());
-
-        //when
-        serviceUnderTest.getContacts(name);
-
-        //then
-        verify(repositoryMock, times(1)).findAll();
-        assertNotNull(repositoryMock.findAll());
-    }
-
     @Test
     public void getContactsIsNotNull() {
-        assertNotNull(serviceUnderTest.getContacts(name));
+        assertNotNull(service.getContacts("simpson"));
     }
 
-        @Test
-    public void getContactsReturnsFilteredContacts() { //TODO: fix test
-        service.saveContactFromFileToRepository(file);
+    @Test
+    public void getContactsReturnsFilteredContacts() {
         List<Contact> contacts = service.getContacts("tatjana");
 
         assertNotNull(contacts);
@@ -72,8 +44,7 @@ public class ContactServiceTest {
     }
 
     @Test
-    public void getContactsReturnsAllContacts() { //TODO: fix test
-        service.saveContactFromFileToRepository(file);
+    public void getContactsReturnsAllContacts() {
         List<Contact> contacts = service.getContacts("    ");
 
         assertNotNull(contacts);
@@ -88,13 +59,11 @@ public class ContactServiceTest {
     }
 
     @Test
-    public void getContactsReturnsCorrectContactInCaseOfExtraCommaInTheLine() { //TODO: fix test
-        service.saveContactFromFileToRepository(file);
+    public void getContactsReturnsCorrectContactInCaseOfExtraCommaInTheLine() {
         List<Contact> contacts = service.getContacts("Jr");
 
         assertThat(contacts.get(0).getName()).containsIgnoringCase("Jr");
         assertThat(contacts.get(0).getName()).isEqualTo("Bart Simpson, Jr.");
         assertThat(contacts.get(0).getUrl()).isEqualTo("https://vignette.wikia.nocookie.net/simpsons/images/c/c0/Bart_simpsons_jr.png/revision/latest/scale-to-width-down/74?cb=20111109022228");
     }
-
 }
