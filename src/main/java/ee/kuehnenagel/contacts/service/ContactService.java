@@ -21,8 +21,8 @@ public class ContactService {
 
     @Getter
     @Setter
-    @Value("src/main/resources/people.csv")
-    private String file;
+    @Value("${contacts.url}")
+    private String file;// = "src/main/resources/people.csv";
 
     private final ContactRepository repository;
 
