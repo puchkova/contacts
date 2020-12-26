@@ -1,10 +1,10 @@
 package ee.kuehnenagel.contacts.repository;
 
 import ee.kuehnenagel.contacts.model.Contact;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
+@Repository
+public interface ContactRepository extends JpaRepository<Contact, Long> {
 
-public interface ContactRepository {
-
-    ArrayList<Contact> getContactsFromCsvFile(String name, String file);
 }

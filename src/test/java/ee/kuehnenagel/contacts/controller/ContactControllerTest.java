@@ -11,12 +11,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
 
 
 @SpringBootTest
@@ -24,9 +26,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 public class ContactControllerTest {
     @Mock
-    private ContactService service;
+    private ContactService serviceMock;
     @InjectMocks
-    private ContactController controller;
+    private ContactController controllerUnderTest;
     @Autowired
     private MockMvc mockMvc;
 
@@ -40,18 +42,18 @@ public class ContactControllerTest {
     @Test
     public void getContactsCallsGetContactsFromContactServiceOnlyOneTime() {
         //given
-        when(service.getContacts(name)).thenReturn(new ArrayList<>());
+        when(serviceMock.getContacts(name)).thenReturn(new ArrayList<>());
 
         //when
-        controller.getContacts(name);
+        controllerUnderTest.getContacts(name);
 
         //then
-        verify(service, times(1)).getContacts(name);
-        assertNotNull(service.getContacts(name));
+        verify(serviceMock, times(1)).getContacts(name);
+        assertNotNull(serviceMock.getContacts(name));
     }
 
     @Test
     public void getContactsIsNotNull() {
-        assertNotNull(controller.getContacts(name));
+        assertNotNull(controllerUnderTest.getContacts(name));
     }
 }
