@@ -16,7 +16,7 @@ The server project is stored in the `src\` directory. It contains *controller*, 
 	 - `saveContactsFromFileToRepository` is a public method for getting contacts from CSV file and saving it to the *repository*. It contains a *while* loop that fills the contact list.
 	 - `getAllContacts` is a private method that calls `findAll` method from the *repository* and returns the full contact list.
 	 - `getContactsByName` is a private method that calls `findByNameContainsIgnoreCase` method from the *repository* and returns the filtered contact list.
-	 - `createNewContact` is a private method for creating a new contact. It also handle file to avoid getting from file to database extra whitespaces to the url field and deviding a name string on two fields because of extra commas.
+	 - `createNewContact` is a private method for creating a new contact. It also handle file to avoid getting from a file to a database extra whitespaces to the url field and deviding a name string on two fields because of extra commas.
 - `ContactRepository` extends `JpaRepository` interface. That allows to create easily *query* methods using keywords. It contins `findByNameContainsIgnoreCase` method that implement a LIKE *query* and ignore case.
 - `Contact` is an *entity* that contains contact id, name and photo url fields. These fields are linked with database columns.
 - `ApplicationStartup` class implements `ApplicationListener` interface. It contains the `onApplicationEvent` method that is invoked with application starting. This method calls `saveContactFromFileToRepository` from the *service*.  	 
