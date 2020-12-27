@@ -29,7 +29,7 @@ The `src\test\java\ee\kuehnenagel\contacts\` package contains automated tests fo
 There is also `people-test.csv` file for testing in `src\test\resources` directory and its path is stored in `application-test.properties`.
 
 ### Front-end
-The client project is stored in the `frontend\` directory It contains *component* and *service* packages inside the `frontend\src\app` directory.
+The client project is stored in the `frontend\` directory. It contains *component* and *service* packages inside the `frontend\src\app` directory.
 - `app.component.css` contains all the slyles using in the project.
 - `app.component.html` contains markup tags to display the web page. It contains the toolbar with a welcome message, search field, search and refresh buttons, table as the contact list and the pagination component.
 - `app.component.ts` contains 3 fuctions: 
