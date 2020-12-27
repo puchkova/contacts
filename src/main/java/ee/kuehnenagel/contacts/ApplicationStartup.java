@@ -14,6 +14,6 @@ class ApplicationStartup implements ApplicationListener<ApplicationReadyEvent> {
 
     @Override
     public void onApplicationEvent(final ApplicationReadyEvent event) {
-        service.saveContactFromFileToRepository(service.getFile());
+        service.saveContactFromFileToRepository();
     }
 }

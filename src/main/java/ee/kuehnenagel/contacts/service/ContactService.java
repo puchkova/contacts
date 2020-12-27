@@ -1,13 +1,15 @@
 package ee.kuehnenagel.contacts.service;
 
 import com.opencsv.CSVReader;
-import ee.kuehnenagel.contacts.model.Contact;
+import ee.kuehnenagel.contacts.entity.Contact;
 import ee.kuehnenagel.contacts.repository.ContactRepository;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,13 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 @Service
 public class ContactService {
 
     @Getter
     @Setter
     @Value("${contacts.url}")
-    private String file;// = "src/main/resources/people.csv";
+    private String file;
 
     private final ContactRepository repository;
 
@@ -34,7 +37,7 @@ public class ContactService {
         }
     }
 
-    public void saveContactFromFileToRepository(String file) {
+    public void saveContactFromFileToRepository() {
         Contact newContact;
         try {
             FileInputStream fis = new FileInputStream(new File(file));
@@ -58,15 +61,7 @@ public class ContactService {
     }
 
     private List<Contact> getContactsByName(String name) {
-        List<Contact> allContacts = getAllContacts();
-        List<Contact> filteredContacts = new ArrayList<>();
-
-        for (Contact contact : allContacts) {
-            if (contact.getName().toLowerCase().contains(name.toLowerCase())) {
-                filteredContacts.add(contact);
-            }
-        }
-        return filteredContacts;
+        return repository.findByNameContainsIgnoreCase(name);
     }
 
     private Contact createNewContact(String[] row) {
