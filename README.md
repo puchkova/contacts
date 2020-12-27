@@ -10,22 +10,22 @@ The back-end is the **Java Spring Boot** application built using **Maven** and c
 ## Application Structure
 ### Back-end
 The server project is stored in the `src\` directory. It contains *controller*, *service*, *repository* and *entity* packages inside the `src\main\java\ee\kuehnenagel\contacts\` package.
-- `ContactController` contains the *REST API* GET request with the contact's name as an optional request parameter. It returns a full or a filtered contact list.
+- `ContactController` contains the *REST API* `GET` request with the contact's name as an optional request parameter. It returns a full or a filtered contact list.
 - `ContactService` contains all main logic. It contains 2 public and 3 private methods. The *service* also contains a CSV file field with its path as *@Value* parameter. 
 	 - `getContacts` is a public method  that calls one of two private methods for getting a full or a filtered list of contacts depending on if there is a parameter or not.
 	 - `saveContactsFromFileToRepository` is a public method for getting contacts from CSV file and saving it to the *repository*. It contains a *while* loop that fills the contact list.
 	 - `getAllContacts` is a private method with the contact's name as a parameter. The method calls `findAll` method from the *repository* and returns the full contact list.
 	 - `getContactsByName` is a private method that calls `findByNameContainsIgnoreCase` method from the *repository* and returns the filtered contact list.
 	 - `createNewContact` is a private method for creating a new contact and avoiding cases of extra whitespaces and commas in the input file.
-- `ContactRepository` extends `JpaRepository` interface. That allows to create easily query methods using keywords. It contins `findByNameContainsIgnoreCase` method that implement a LIKE query and ignore case.
+- `ContactRepository` extends `JpaRepository` interface. That allows to create easily *query* methods using keywords. It contins `findByNameContainsIgnoreCase` method that implement a LIKE *query* and ignore case.
 - `Contact` is an *entity* that contains contact id, name and photo url fields. These fields are linked with database columns.
 - `ApplicationStartup` class implements `ApplicationListener` interface. It contains the `onApplicationEvent` method that is invoked with application starting. This method calls `saveContactFromFileToRepository` from the *service*.  	 
 - `people.csv` file is located in the `src\main\resources` directory. It is the input file for uploading contacts to the contact list.
 - `application.properties` provides a list of database settings and a CSV file path.
 
 ### Automated Tests
-The `src\test\java\ee\kuehnenagel\contacts\` package contains automated tests for *controller*, *service* and *repository*. 
-Unit tests was created using Mockito testing framework and integration tests was created using SpringRunner.  
+The `src\test\java\ee\kuehnenagel\contacts\` package contains automated tests for *controller*, *service* and *repository*. *Unit tests* was created using **Mockito** testing framework. *Integration tests* was created using **SpringRunner**.  
+
 There is also `people-test.csv` file for testing in `src\test\resources` directory and its path is stored in `application-test.properties`.
 
 ### Front-end
