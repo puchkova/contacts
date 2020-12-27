@@ -10,7 +10,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -24,15 +24,28 @@ public class ContactServiceUnitTest {
     private ContactService serviceUnderTest;
 
     @Test
-    public void getAllContactsCallsFindAllFromRepositoryOnlyOneTime() { //TODO: fix test
+    public void getAllContactsCallsFindAllFromRepositoryOnlyOneTime() {
         //given
         when(repositoryMock.findAll()).thenReturn(new ArrayList<>());
 
         //when
-        serviceUnderTest.getContacts("");
+        serviceUnderTest.getContacts("  ");
 
         //then
         verify(repositoryMock, times(1)).findAll();
         assertNotNull(repositoryMock.findAll());
+    }
+
+    @Test
+    public void getAllContactsCallsFindByNameContainsIgnoreCaseRepositoryOnlyOneTime() {
+        //given
+        when(repositoryMock.findByNameContainsIgnoreCase(anyString())).thenReturn(new ArrayList<>());
+
+        //when
+        serviceUnderTest.getContacts("sim");
+
+        //then
+        verify(repositoryMock, times(1)).findByNameContainsIgnoreCase("sim");
+        assertNotNull(repositoryMock.findByNameContainsIgnoreCase("sim"));
     }
 }

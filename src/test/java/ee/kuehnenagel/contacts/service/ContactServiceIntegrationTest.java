@@ -1,6 +1,6 @@
 package ee.kuehnenagel.contacts.service;
 
-import ee.kuehnenagel.contacts.model.Contact;
+import ee.kuehnenagel.contacts.entity.Contact;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +59,7 @@ public class ContactServiceIntegrationTest {
     }
 
     @Test
-    public void getContactsReturnsCorrectContactInCaseOfExtraCommaInTheLine() {
+    public void getContactsReturnsCorrectValuesWhenExtraCommaInTheLine() {
         List<Contact> contacts = service.getContacts("Jr");
 
         assertThat(contacts.get(0).getName()).containsIgnoringCase("Jr");
